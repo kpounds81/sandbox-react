@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './shelf.css';
+import '../shelf.css';
 
 class ItemList extends Component {
   state = {
