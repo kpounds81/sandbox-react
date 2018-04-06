@@ -1,0 +1,11 @@
+.listTitle {
+  font-weight: bold;
+}
+
+.itemListMain li {
+  list-style-type: none;
+}
+
+.red {
+  color: red;
+}
