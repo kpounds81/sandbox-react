@@ -25,11 +25,25 @@ class ItemList extends Component {
             <div key={item.sku} className="productBlock" href="#">
               <Favorites />
               <div className="imageContainer">
-                <Link to={{ pathname: `/product/${item.sku}`, name: item.name, image: item.image, sku: item.sku, description: item.description, price: item.price }} >
+                <Link to={{ 
+                  pathname: `/product/${item.sku}`, 
+                  name: item.name, 
+                  image: item.image, 
+                  sku: item.sku, 
+                  description: item.description, 
+                  price: item.price 
+                }} >
                   <img alt={item.name} src={item.image} className="productImage" />
                 </Link>
               </div>
-              <Link to={{ pathname: `/product/${item.sku}`, name: item.name, image: item.image, sku: item.sku, description: item.description, price: item.price }} className="productLink">
+              <Link to={{ 
+                pathname: `/product/${item.sku}`, 
+                name: item.name, 
+                image: item.image, 
+                sku: item.sku, 
+                description: item.description, 
+                price: item.price 
+              }} className="productLink">
                 <div className="listLine">
                   <span className="listTitle">Product: </span>
                   {item.name}
