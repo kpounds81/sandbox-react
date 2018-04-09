@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
-import ItemList from './components/Shelf/ItemList';
+import Main from './components/Main';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Header />
-        <ItemList />
+        <Main />
       </div>
     );
   }

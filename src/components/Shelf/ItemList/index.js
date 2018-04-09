@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import '../shelf.css';
 
 class ItemList extends Component {
+
   state = {
     items: [],
+    isFavorite: false
   };
 
   componentDidMount() {
@@ -20,13 +23,13 @@ class ItemList extends Component {
         <div className="itemListMain">
           {this.state.items.map(item => (
             <div key={item.sku} className="productBlock" href="#">
-              <Likes />
+              <Favorites />
               <div className="imageContainer">
-                <a href="#">
+                <Link to={{ pathname: `/product/${item.sku}`, name: item.name, image: item.image, sku: item.sku, description: item.description, price: item.price }} >
                   <img alt={item.name} src={item.image} className="productImage" />
-                </a>
+                </Link>
               </div>
-              <a href="#" className="productLink">
+              <Link to={{ pathname: `/product/${item.sku}`, name: item.name, image: item.image, sku: item.sku, description: item.description, price: item.price }} className="productLink">
                 <div className="listLine">
                   <span className="listTitle">Product: </span>
                   {item.name}
@@ -39,7 +42,7 @@ class ItemList extends Component {
                   <span className="listTitle">Price: </span>
                   <span className="red">${item.price}</span>
                 </div>
-              </a>
+              </Link>
             </div>
             )
           )}
@@ -49,7 +52,7 @@ class ItemList extends Component {
   }
 }
 
-class Likes extends Component {
+class Favorites extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -69,7 +72,7 @@ class Likes extends Component {
     return(
       <div className="likeContainer">
         <button className={this.state.isFavorite ? 'favSet' : 'favNotSet'}
-              onClick={this.setFavorite} >
+              onClick={this.setFavorite}>
           <span>{this.state.isFavorite ? 'In Favorites' : 'Mark as Favorite'}</span>
         </button>
       </div>

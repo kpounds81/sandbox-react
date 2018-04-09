@@ -1,0 +1,42 @@
+.productDetailsPage {
+  max-width: 550px;
+  margin: auto;
+  padding: 10px;
+}
+
+.productBox {
+  width: 200px;
+  display: inline-block;
+  padding-top: 20px;
+  text-align: right;
+}
+
+.priceLabel {
+  color: #000;
+}
+
+.redPrice {
+  color: red;
+  font-weight: bold;
+  margin-left: 4px;
+  float: right;
+}
+
+.pdpImage {
+  float: left;
+}
+
+.atcButton {
+  margin-top: 5px;
+}
+
+.description {
+  clear: both;
+  margin-top: 5px;
+}
+
+.pdpDescription {
+  clear: both;
+  padding-top: 50px;
+  margin-bottom: 0;
+}
