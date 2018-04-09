@@ -9,31 +9,69 @@ class ItemList extends Component {
 
   componentDidMount() {
     axios.get('http://api.jsonbin.io/b/5ac79b198daf792844bf3523').then(res => {
-      console.log(res.data);
       const items = res.data;
       this.setState({ items });
     });
   }
+
   render() {
     return (
       <div className="itemShelf">
-        <ul className="itemListMain">
+        <div className="itemListMain">
           {this.state.items.map(item => (
-            <li key={item.sku}>
-              <span className="listTitle">Product: </span>
-              {item.name}
-              <div>
-                <span className="listTitle">Product Description: </span>
-                {item.description}
+            <div key={item.sku} className="productBlock" href="#">
+              <Likes />
+              <div className="imageContainer">
+                <a href="#">
+                  <img alt={item.name} src={item.image} className="productImage" />
+                </a>
               </div>
-              <div>
-                <span className="listTitle">Price: </span>
-                <span className="red">${item.price}</span>
-              </div>
-              <img alt={item.name} src={item.image} />
-            </li>
-          ))}
-        </ul>
+              <a href="#" className="productLink">
+                <div className="listLine">
+                  <span className="listTitle">Product: </span>
+                  {item.name}
+                </div>
+                <div className="listLine">
+                  <span className="listTitle">Product Description: </span>
+                  {item.description}
+                </div>
+                <div className="listLine">
+                  <span className="listTitle">Price: </span>
+                  <span className="red">${item.price}</span>
+                </div>
+              </a>
+            </div>
+            )
+          )}
+        </div>
+      </div>
+    );
+  }
+}
+
+class Likes extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isFavorite: false
+    };
+    //nexessary to make 'this' work in the callback
+    this.setFavorite = this.setFavorite.bind(this);
+  }
+
+  setFavorite() {
+    this.setState(prevState => ({
+      isFavorite: !prevState.isFavorite
+    }));
+  }
+
+  render() {
+    return(
+      <div className="likeContainer">
+        <button className={this.state.isFavorite ? 'favSet' : 'favNotSet'}
+              onClick={this.setFavorite} >
+          <span>{this.state.isFavorite ? 'In Favorites' : 'Mark as Favorite'}</span>
+        </button>
       </div>
     );
   }

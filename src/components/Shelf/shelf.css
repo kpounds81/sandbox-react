@@ -2,10 +2,64 @@
   font-weight: bold;
 }
 
-.itemListMain li {
-  list-style-type: none;
+span.red {
+  color: red;
 }
 
-.red {
-  color: red;
+.itemListMain {
+  max-width: 900px;
+  margin: auto;
+}
+
+.productBlock {
+  width: 46%;
+  margin: 5px;
+  float: left;
+  height: 340px;
+  color: #000;
+  text-decoration: none;
+  border: 1px solid #FFF;
+  padding: 10px;
+}
+
+.imageContainer {
+  text-align: center;
+}
+
+.productImage {
+  max-width: 250px;
+  padding-bottom: 20px;
+}
+
+.listLine {
+  max-width: 250px;
+  text-align: left;
+  margin: auto;
+  padding-bottom: 4px;
+}
+
+.productLink {
+  color: #333;
+  text-decoration: none;
+}
+.productLink:hover {
+  color: rgb(228, 118, 15)
+}
+
+.favSet, .favNotSet {
+  display: block;
+  width: 140px;
+  margin: 0 auto 10px auto;
+  cursor: pointer;
+}
+
+.favSet {
+  background-color: rgb(21, 122, 218);
+  border-radius: 5px;
+  color: #FFF;
+  outline: none;
+}
+
+.likeContainer {
+  width: 100%;
 }
